@@ -157,7 +157,7 @@
     position: relative;
     z-index: 10;
     background: base.$violet-gradient;
-    box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+    box-shadow: 2px 7px 77px #ff14ff80;
     animation-name: gradientButtonShadow;
     animation-duration: 3.2s;
     animation-timing-function: ease;
