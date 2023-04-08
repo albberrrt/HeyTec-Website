@@ -257,15 +257,15 @@
   }
   @keyframes gradientButtonShadow {
     0% {
-        box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+        box-shadow: 2px 7px 77px #ff14ff80;
     }
     40% {
-        box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+        box-shadow: 2px 7px 77px #ff14ff80;
     }
     60% {
-        box-shadow: 2px 7px 77px hwb(258 0% 8% / 0.5);
+        box-shadow: 2px 7px 77px #4600eb80;
     }
     100% {
-        box-shadow: 2px 7px 77px hwb(258 0% 8% / 0.5);
+        box-shadow: 2px 7px 77px #4600eb80;
     }
   }
