@@ -20,10 +20,8 @@ export default function HomePage() {
             
           </h1>
         </div>
-        <div>
           <p>Hey!Tec is the platform for Etec, providing the efficiency
               and tools students need to share and collaborate with each other</p>
-        </div>
         <Link href={"/signup"}>
           <div className={sty.button}>
             <span>Start Messaging</span>
