@@ -1,0 +1,38 @@
+@use '../../styles/base';
+
+.loading {
+    content: "";
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    span {
+        content: "";
+        width: 0%;
+        height: 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: base.$pink-gradient;
+        animation: loadingRun .6s linear;
+    }
+}
+
+@keyframes loadingRun {
+    0% {
+        width: 0%;
+    }
+    50%, 100% {
+        width: 100%;
+    }
+}
+
+@keyframes loadingShadow {
+    0% {
+        opacity: 1;
+    }
+    1%, 100% {
+        opacity: 0;
+    }
+}

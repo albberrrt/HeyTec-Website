@@ -1,0 +1,271 @@
+@use '../styles/base';
+
+.header {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 1rem;
+  font-size: 14px;
+  font-weight: 500;
+
+  img {
+    position: absolute;
+    left: 0;
+  }
+}
+
+.signup {
+  height: 32px;
+  width: 96px;
+  border-radius: 6px;
+  background: base.$violet-gradient-90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  margin-left: 2rem;
+
+}
+
+.linkdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+
+  a {
+    text-decoration: none;
+    color: base.$dark-font-color-60;
+  }
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+.container {
+    width: 60%;
+    height: 70%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        margin-top: 2rem;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
+    p {
+        width: 80%;
+        font-size: 28px;
+        text-align: center;
+        color: base.$dark-font-color-60;
+    }
+
+}
+
+.title {
+    font-size: 116px;
+    
+    .send::before {
+        content: "Send.";
+        position: absolute;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background-image: base.$dark-gradient;
+        animation-name: gradientText2;
+        animation-duration: 3.2s;
+        animation-timing-function: ease;
+        animation-delay: 2;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    }
+    .messages::before {
+        content: "Messages.";
+        position: absolute;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background-image: base.$dark-gradient;
+    }
+
+    :first-child span {
+        background-image: base.$pink-gradient;
+        animation-name: gradientText1;
+        animation-duration: 3.2s;
+        animation-timing-function: ease;
+        animation-delay: 1;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-fill-mode: none;
+        animation-play-state: running;
+        
+    }
+    :last-child span {
+        background-image: base.$violet-gradient;
+        opacity: 0;
+        animation-name: gradientText2;
+        animation-duration: 3.2s;
+        animation-timing-function: ease;
+        animation-delay: 1;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    }
+
+    .titlespan {
+        position: relative;
+        
+            span {
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+    }
+    
+
+}
+
+.button {
+    height: 52px;
+    width: 210px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    z-index: 10;
+    background: base.$violet-gradient;
+    box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+    animation-name: gradientButtonShadow;
+    animation-duration: 3.2s;
+    animation-timing-function: ease;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
+
+    &::after {
+        content: "";
+        height: 52px;
+        width: 210px;
+        border-radius: 6px;
+        position: absolute;
+        z-index: -1;
+        background: base.$pink-gradient;
+        animation-name: gradientButton1;
+        animation-duration: 3.2s;
+        animation-timing-function: ease;
+        animation-delay: 0;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 50px;
+      width: 208px;
+      border-radius: 5px;
+      background-color: white;
+      transition: all .2s ease-in-out;
+    }
+
+    &:hover::before {
+        opacity: 0;
+    }
+    &:hover {
+        span {
+            color: white;
+        }
+    }
+
+    span {
+        z-index: 1000;
+        color: base.$dark-font-color;
+    }
+  
+  }
+
+
+  @keyframes gradientText1 {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  @keyframes gradientText2 {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  @keyframes gradientButton1 {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  @keyframes gradientButtonShadow {
+    0% {
+        box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+    }
+    40% {
+        box-shadow: 2px 7px 77px hwb(300 8% 0% / 0.5);
+    }
+    60% {
+        box-shadow: 2px 7px 77px hwb(258 0% 8% / 0.5);
+    }
+    100% {
+        box-shadow: 2px 7px 77px hwb(258 0% 8% / 0.5);
+    }
+  }
