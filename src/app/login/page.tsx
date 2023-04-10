@@ -1,9 +1,80 @@
+"use client"
+import sty from "../styles/sign.module.scss";
 
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
+
+import Input from "../components/Input/Input";
+import Button from "../components/Button/Button";
+
+const createUserFormSchema = z.object({
+  username: z.string()
+    .nonempty('Username is required')
+    .transform(name => {
+      return name.trim()
+    }),
+  password: z.string()
+    .nonempty('Password is required')
+    .min(6, 'Password needs at least 6 characteres'),
+})
+
+type CreateUserFormData = z.infer<typeof createUserFormSchema>
 
 export default function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CreateUserFormData>({
+    resolver: zodResolver(createUserFormSchema),
+  });
+  
+  const { signUp } = useContext(AuthContext);
+  
+  async function handleSignUp(data: CreateUserFormData) {
+      
+    try {
+      await signUp(data);
+    } catch (error) {
+      console.log(error);
+      console.log("Deu erro maninho");
+    }
+  
+  }
+
     return (
-      <>
-        <h1>Login</h1>
-      </>
+      <main className={sty.main}>
+          <div className={sty.container}>
+            <h1><span>Login in Your </span><span>Hey!Tec</span><span> Account</span></h1>
+            <form onSubmit={handleSubmit(handleSignUp)}>
+              <Input
+                register={register}
+                name="username"
+                width="480px" 
+                placeholder="Username" 
+                type="text" 
+                id="user" 
+                alt="Please fill out this field."
+                error={errors.username ? true : false}
+              />
+              {errors.username && <span>{errors.username.message}</span>}
+              <Input 
+                register={register}
+                name="password"
+                width="480px" 
+                placeholder="Password" 
+                type="password" 
+                id="password" 
+                alt="Please fill out this field." 
+                error={errors.password ? true : false}
+              />
+              {errors.password && <span>{errors.password.message}</span>}
+              <Button value="Sign up" id="signup"/>
+            </form>
+          </div>
+        </main>
     )
 }

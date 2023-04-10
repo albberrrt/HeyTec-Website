@@ -30,15 +30,6 @@ export const AuthContext = createContext({} as AuthContextType);
 export function AuthProvider({ children } : { children: React.ReactNode }) {
     const [user, setUser] = useState<User>({ id: '', username: '', email: '' });
 
-    useEffect(() => {
-        const token = Cookies.get('heytec.token');
-        if (token) {
-          const decodedToken = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('utf-8'));
-          setUser(decodedToken);
-        }
-        console.log(user);
-    }, [user]);
-
     const isAuthenticated = Boolean(user);
 
     async function signUp({ username, email, password }: SignInData) {
@@ -52,6 +43,15 @@ export function AuthProvider({ children } : { children: React.ReactNode }) {
                 email: email,
                 password: hashedPassword,
             })
+
+            useEffect(() => {
+                const token = Cookies.get('heytec.token');
+                if (token) {
+                  const decodedToken = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('utf-8'));
+                  setUser(decodedToken);
+                }
+                console.log(user);
+            }, [user]);
 
             res.status == 201 ? alert("Usuário cadastrado com sucesso.") : alert("Deu ruim aq");
 

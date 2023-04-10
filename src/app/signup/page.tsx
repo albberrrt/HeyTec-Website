@@ -1,7 +1,6 @@
 "use client"
-import sty from "./signup.module.scss";
+import sty from "../styles/sign.module.scss";
 
-import { api } from "../../lib/api/axios";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
