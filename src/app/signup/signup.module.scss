@@ -38,6 +38,15 @@
     }
 
     form {
+        span {
+            width: 100%;
+            display: flex;
+            color: base.$error-color;
+            font-family: 'Inter';
+            margin-top: .1rem;
+            display: flex;
+            
+        }
         div:not(:first-child) {
             margin-top: 1rem;
         }

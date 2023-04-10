@@ -5,14 +5,17 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string;
     width: string;
     id: string;
+    register: any;
+    name: string;
+    error: boolean;
 }
 
 
-const Input: FC<InputProps> = ({ placeholder, width, id, ...props }) => {
+const Input: FC<InputProps> = ({ placeholder, width, id, register, name, error, ...props }) => {
     return (
         <>
             <div className={sty.input} style={{width: width}} >
-                <input type="text" id={id} placeholder=" " {...props} />
+                <input id={id} placeholder=" " className={error ? sty.error : ''} {...register && register(name)} {...props} />
                 <label className={sty.placeholder}htmlFor={id}>{placeholder}</label>
             </div>
         </>

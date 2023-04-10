@@ -41,4 +41,8 @@
         font-size: 16px;
         cursor: text;
     }
+
+    .error {
+        border-bottom: 2px solid base.$error-color !important;
+    }
 }
